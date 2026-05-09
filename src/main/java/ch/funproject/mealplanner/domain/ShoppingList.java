@@ -14,7 +14,7 @@ import java.util.UUID;
  * ShoppingList domain model.
  * Represents a shopping list containing ingredients to be purchased.
  */
-@Entity
+@Entity(name = "shopping_list")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

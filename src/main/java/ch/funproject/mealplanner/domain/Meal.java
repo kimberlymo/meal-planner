@@ -5,13 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 /**
- * Meal domain model.
- * Represents a meal with its recipe, ingredients, and metadata.
+ * PlannedMeal domain model.
+ * Represents a meal that has been planned with a specific availability/time slot.
  */
 @Entity
 @Getter
@@ -22,11 +20,8 @@ public class Meal {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String name;
-    private String url;
-    @ManyToMany
-    private List<Ingredient> ingredients;
-    private int length;        // Duration in minutes
-    private int portion;       // Number of portions
-    private LocalDate lastCooked;
+    @ManyToOne
+    private Recipe recipe;
+    @ManyToOne
+    private Availability availability;
 }

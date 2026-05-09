@@ -1,26 +1,24 @@
-package ch.funproject.mealplanner.domain.dto;
+package ch.funproject.mealplanner.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
-/**
- * PlannedMeal domain model.
- * Represents a meal that has been planned with a specific availability/time slot.
- */
+@Entity(name = "receipe_ingredient")
 @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PlannedMeal {
+public class RecipeIngredient {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne
-    private MealDto meal;
-    @ManyToOne
-    private AvailabilityDto availability;
+    private Ingredient ingredient;
+    private int amount;
 }

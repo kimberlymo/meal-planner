@@ -20,6 +20,9 @@ public class AvailabilityService {
     }
 
     public Optional<Availability> findById(UUID id) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID cannot be null");
+        }
         return availabilityRepository.findById(id);
     }
 
@@ -28,6 +31,9 @@ public class AvailabilityService {
     }
 
     public Availability save(Availability availability) {
+        if (availability == null) {
+            throw new IllegalArgumentException("Availability cannot be null");
+        }
         return availabilityRepository.save(availability);
     }
 

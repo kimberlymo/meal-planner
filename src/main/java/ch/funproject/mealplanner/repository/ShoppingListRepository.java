@@ -8,4 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface ShoppingListRepository extends JpaRepository<ShoppingList, UUID> {
+    ShoppingList findFirstByOrderByCreationDateDesc();
 }

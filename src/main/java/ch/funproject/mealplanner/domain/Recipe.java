@@ -1,4 +1,4 @@
-package ch.funproject.mealplanner.domain.dto;
+package ch.funproject.mealplanner.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,10 +13,11 @@ import java.util.UUID;
  * Meal domain model.
  * Represents a meal with its recipe, ingredients, and metadata.
  */
+@Entity
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class MealDto {
+public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -24,7 +25,7 @@ public class MealDto {
     private String name;
     private String url;
     @ManyToMany
-    private List<IngredientDto> ingredients;
+    private List<RecipeIngredient> ingredients;
     private int length;        // Duration in minutes
     private int portion;       // Number of portions
     private LocalDate lastCooked;
