@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,7 +27,7 @@ public class Recipe {
     @ManyToMany
     private List<RecipeIngredient> ingredients;
     // Duration in minutes
-    private int length;
+    private int duration;
     // Number of portions
     private int portion;
 }

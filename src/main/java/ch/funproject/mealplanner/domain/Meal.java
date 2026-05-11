@@ -2,10 +2,12 @@ package ch.funproject.mealplanner.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.UUID;
 
 /**
@@ -14,6 +16,7 @@ import java.util.UUID;
  */
 @Entity
 @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Meal {
@@ -23,8 +26,10 @@ public class Meal {
 
     @ManyToOne
     private Recipe recipe;
+    @Column(name = "planned_date")
+    private LocalDate plannedDate;
     @Column(name = "start_time")
-    private LocalDateTime startTime;
+    private LocalTime startTime;
     @Column(name = "end_time")
-    private LocalDateTime endTime;
+    private LocalTime endTime;
 }

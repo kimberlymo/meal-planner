@@ -19,7 +19,7 @@ public class RecipeService {
     private final RecipeMapper mapper;
 
     public Flux<Recipe> findAll() {
-        return Flux.fromIterable(() -> repository.findAll().iterator());
+        return Flux.fromIterable(repository.findAll());
     }
 
     public Mono<Recipe> findById(UUID id) {
@@ -29,6 +29,14 @@ public class RecipeService {
         return Mono.fromCallable(() -> repository.findById(id))
                 .flatMap(optional -> optional.map(Mono::just)
                         .orElseGet(Mono::empty));
+    }
+
+    public Flux<Recipe> findByDurationIsLessThanEqual(int maxDuration) {
+        if (maxDuration <= 1) {
+            return Flux.error(new IllegalArgumentException("The max duration cannot be less than one minute"));
+        }
+
+        return Flux.fromIterable(repository.findByDurationIsLessThanEqualOrderByDurationDesc(maxDuration));
     }
 
     public Mono<Recipe> save(RecipeDto recipe) {

@@ -16,10 +16,6 @@ import java.util.UUID;
 @Builder
 public class Ingredient {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
     @Column(unique=true)
     private String name;
-
 }

@@ -1,5 +1,6 @@
 package ch.funproject.mealplanner.service;
 
+import ch.funproject.mealplanner.domain.Meal;
 import ch.funproject.mealplanner.domain.RecipeIngredient;
 import ch.funproject.mealplanner.domain.dto.RecipeIngredientDto;
 import ch.funproject.mealplanner.repository.RecipeIngredientRepository;
@@ -38,6 +39,12 @@ public class RecipeIngredientService {
         return Mono.fromCallable(() -> repository.findByAmountAndIngredient_Name(amount, name))
                 .flatMap(optional -> optional.map(Mono::just)
                         .orElseGet(Mono::empty));
+    }
+
+    public Flux<RecipeIngredient> aggregateIngredientsByMeals(Flux<Meal> meals) {
+        return meals.collectList()
+                .flatMap(toAggregate -> Mono.fromCallable(() -> repository.aggregateIngredientsByMeals(toAggregate)))
+                .flatMapIterable(list -> list);
     }
 
     public Mono<RecipeIngredient> save(RecipeIngredientDto toSave) {

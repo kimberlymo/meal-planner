@@ -1,10 +1,7 @@
 package ch.funproject.mealplanner.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
@@ -17,6 +14,7 @@ import java.util.UUID;
  */
 @Entity(name = "shopping_list")
 @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShoppingList {
@@ -25,7 +23,7 @@ public class ShoppingList {
     private UUID id;
 
     @ManyToMany
-    private List<Ingredient> ingredients;
+    private List<RecipeIngredient> ingredients;
     @CreationTimestamp
     private LocalDate creationDate;
 }

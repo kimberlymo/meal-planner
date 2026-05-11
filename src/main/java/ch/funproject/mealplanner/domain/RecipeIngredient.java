@@ -21,4 +21,10 @@ public class RecipeIngredient {
     @ManyToOne
     private Ingredient ingredient;
     private int amount;
+
+    // was added because of the query that is being used in RecipeIngredientRepository
+    protected RecipeIngredient(Ingredient ingredient, long amount) {
+        this.ingredient = ingredient;
+        this.amount = (int) amount;
+    }
 }
