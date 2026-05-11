@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -22,6 +23,8 @@ public class Meal {
 
     @ManyToOne
     private Recipe recipe;
-    @ManyToOne
-    private Availability availability;
+    @Column(name = "start_time")
+    private LocalDateTime startTime;
+    @Column(name = "end_time")
+    private LocalDateTime endTime;
 }

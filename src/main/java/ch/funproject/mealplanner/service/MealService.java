@@ -35,8 +35,12 @@ public class MealService {
         if (meal.getRecipe() == null) {
             return Mono.error(new IllegalArgumentException("Meal cannot be null"));
         }
-        if (meal.getAvailability() == null) {
-            return Mono.error(new IllegalArgumentException("Availability cannot be null"));
+        if (meal.getStartTime() == null || meal.getEndTime() == null) {
+            return Mono.error(new IllegalArgumentException("Start time and end time cannot be null"));
+        }
+
+        if (meal.getStartTime().isAfter(meal.getEndTime())) {
+            return Mono.error(new IllegalArgumentException("Start time cannot be after end time"));
         }
 
         return Mono.fromCallable(() -> repository.save(meal));

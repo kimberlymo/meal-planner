@@ -17,6 +17,9 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
+/**
+ * Controller for managing ingredients. Provides endpoints to create, retrieve, and delete ingredients.
+ */
 @Slf4j
 @RequiredArgsConstructor
 @RestController

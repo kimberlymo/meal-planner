@@ -3,16 +3,16 @@ package ch.funproject.mealplanner.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.UUID;
 
-@Entity(name = "specific_availability")
+@Entity(name = "recurring_availability")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @AllArgsConstructor
 @Builder
-public class SpecificAvailability {
+public class RecurringAvailability {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -21,8 +21,7 @@ public class SpecificAvailability {
     private LocalTime startTime;
     @Column(name = "end_time")
     private LocalTime endTime;
-    private LocalDate date;
-    // used for when a reacurring availability is being removed for one week
-    @Column(name = "is_available")
-    private boolean isAvailable;
+    @Column(name = "week_day")
+    private DayOfWeek weekDay;
+
 }

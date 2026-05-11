@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,11 +23,13 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(nullable = false)
     private String name;
     private String url;
     @ManyToMany
     private List<RecipeIngredient> ingredients;
-    private int length;        // Duration in minutes
-    private int portion;       // Number of portions
-    private LocalDate lastCooked;
+    // Duration in minutes
+    private int length;
+    // Number of portions
+    private int portion;
 }

@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -25,5 +26,6 @@ public class ShoppingList {
 
     @ManyToMany
     private List<Ingredient> ingredients;
+    @CreationTimestamp
     private LocalDate creationDate;
 }
