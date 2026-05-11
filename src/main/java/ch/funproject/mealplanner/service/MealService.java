@@ -9,6 +9,12 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
+/**
+ * Service class for managing {@link Meal} entities.
+ * <p>
+ * This service handles the business logic for scheduling meals, including
+ * validation of meal timings and persistence of meal planning data.
+ */
 @Service
 @RequiredArgsConstructor
 public class MealService {
@@ -28,6 +34,20 @@ public class MealService {
                         .orElseGet(Mono::empty));
     }
 
+    /**
+     * Validates and persists a meal plan entry.
+     * <p>
+     * Validation checks performed:
+     * <ul>
+     *     <li>Meal and associated Recipe must not be null.</li>
+     *     <li>Start and End times must be provided.</li>
+     *     <li>The Start time must occur before the End time.</li>
+     * </ul>
+     *
+     * @param meal the {@link Meal} entity to save.
+     * @return a {@link Mono} emitting the persisted {@link Meal}.
+     * @throws IllegalArgumentException if any validation criteria are not met.
+     */
     public Mono<Meal> save(Meal meal) {
         if (meal == null) {
             return Mono.error(new IllegalArgumentException("Meal cannot be null"));

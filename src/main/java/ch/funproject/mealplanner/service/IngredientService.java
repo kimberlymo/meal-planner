@@ -9,6 +9,12 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
+/**
+ * Service class for managing {@link Ingredient} entities.
+ * <p>
+ * This service provides a reactive interface for performing CRUD operations on ingredients,
+ * wrapping the blocking repository calls into non-blocking Reactor types.
+ */
 @Service
 @RequiredArgsConstructor
 public class IngredientService {
@@ -27,6 +33,13 @@ public class IngredientService {
                         .orElseGet(Mono::empty));
     }
 
+    /**
+     * Searches for an ingredient by its case-sensitive name.
+     *
+     * @param name the name of the ingredient to search for.
+     * @return a {@link Mono} emitting the matching {@link Ingredient}, or empty if no match is found.
+     * @throws IllegalArgumentException if the name is null or blank.
+     */
     public Mono<Ingredient> findByName(String name) {
         if (name == null || name.isBlank()) {
             return Mono.error(new IllegalArgumentException("Name cannot be empty for ingredient"));
