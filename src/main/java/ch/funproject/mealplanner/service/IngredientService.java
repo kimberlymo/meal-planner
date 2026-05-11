@@ -27,6 +27,14 @@ public class IngredientService {
                         .orElseGet(Mono::empty));
     }
 
+    public Mono<Ingredient> findByName(String name) {
+        if (name == null || name.isBlank()) {
+            return Mono.error(new IllegalArgumentException("Name cannot be empty for ingredient"));
+        }
+        return Mono.fromCallable(() -> repository.findIngredientByName(name))
+                .flatMap(optional -> optional.map(Mono::just).orElseGet(Mono::empty));
+    }
+
     public Mono<Ingredient> save(String name) {
         if (name == null || name.isBlank()) {
             return Mono.error(new IllegalArgumentException("name cannot be empty"));

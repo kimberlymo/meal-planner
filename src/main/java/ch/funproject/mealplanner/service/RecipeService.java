@@ -1,6 +1,8 @@
 package ch.funproject.mealplanner.service;
 
 import ch.funproject.mealplanner.domain.Recipe;
+import ch.funproject.mealplanner.domain.dto.RecipeDto;
+import ch.funproject.mealplanner.domain.mapper.RecipeMapper;
 import ch.funproject.mealplanner.repository.RecipeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +15,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class RecipeService {
     private final RecipeRepository repository;
-    private final RecipeIngredientService ingredientService;
+    private final RecipeIngredientService recipeIngredientService;
+    private final RecipeMapper mapper;
 
     public Flux<Recipe> findAll() {
         return Flux.fromIterable(() -> repository.findAll().iterator());
@@ -28,7 +31,7 @@ public class RecipeService {
                         .orElseGet(Mono::empty));
     }
 
-    public Mono<Recipe> save(Recipe recipe) {
+    public Mono<Recipe> save(RecipeDto recipe) {
         if (recipe == null) {
             return Mono.error(new IllegalArgumentException("Meal cannot be null"));
         }
@@ -41,9 +44,9 @@ public class RecipeService {
         }
 
         return Flux.fromIterable(recipe.getIngredients())
-                .flatMap(ingredient -> ingredientService.findByAmountAndName(ingredient.getAmount(), ingredient.getIngredient().getName())
-                        .switchIfEmpty(ingredientService.save(ingredient)))
-                .then(Mono.fromCallable(() -> repository.save(recipe)));
+                .flatMap(ingredient -> recipeIngredientService.findByAmountAndName(ingredient.getAmount(), ingredient.getName())
+                        .switchIfEmpty(recipeIngredientService.save(ingredient)))
+                .then(Mono.fromCallable(() -> repository.save(mapper.toEntity(recipe))));
     }
 
     public Mono<Void> deleteById(UUID id) {

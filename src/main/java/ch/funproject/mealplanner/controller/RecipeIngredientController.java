@@ -33,7 +33,7 @@ public class RecipeIngredientController {
 
     }
 
-    @GetMapping
+    @GetMapping("/ingredient")
     public Mono<RecipeIngredient> findByAmountAndName(@RequestParam int amount, @RequestParam @NonNull String name) {
         return service.findByAmountAndName(amount, name);
     }

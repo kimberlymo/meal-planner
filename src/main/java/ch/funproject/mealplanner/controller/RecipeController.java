@@ -1,6 +1,7 @@
 package ch.funproject.mealplanner.controller;
 
 import ch.funproject.mealplanner.domain.Recipe;
+import ch.funproject.mealplanner.domain.dto.RecipeDto;
 import ch.funproject.mealplanner.service.RecipeService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +39,7 @@ public class RecipeController {
     }
 
     @PostMapping
-    public Mono<Recipe> save(@RequestBody @NonNull Recipe recipe) {
+    public Mono<Recipe> save(@RequestBody @NonNull RecipeDto recipe) {
         return service.save(recipe);
     }
 }
