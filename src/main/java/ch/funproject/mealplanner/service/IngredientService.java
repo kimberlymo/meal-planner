@@ -37,7 +37,7 @@ public class IngredientService {
 
     public Mono<Ingredient> save(String name) {
         if (name == null || name.isBlank()) {
-            return Mono.error(new IllegalArgumentException("name cannot be empty"));
+            return Mono.error(new IllegalArgumentException("Name cannot be empty"));
         }
         Ingredient toSave = Ingredient.builder().name(name).build();
         return Mono.fromCallable(() -> repository.save(toSave));

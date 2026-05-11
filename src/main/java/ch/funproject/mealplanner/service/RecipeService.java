@@ -1,7 +1,6 @@
 package ch.funproject.mealplanner.service;
 
 import ch.funproject.mealplanner.domain.Recipe;
-import ch.funproject.mealplanner.domain.RecipeIngredient;
 import ch.funproject.mealplanner.domain.dto.RecipeDto;
 import ch.funproject.mealplanner.domain.mapper.RecipeMapper;
 import ch.funproject.mealplanner.repository.RecipeRepository;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
