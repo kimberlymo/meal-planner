@@ -1,6 +1,8 @@
 package ch.funproject.mealplanner.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +22,8 @@ public class RecipeIngredient {
 
     @ManyToOne
     private Ingredient ingredient;
+    @Min(0)
+    @Max(10_000)
     private int amount;
     private Unit unit;
 

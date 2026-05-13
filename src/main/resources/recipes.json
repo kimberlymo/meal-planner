@@ -1,15 +1,400 @@
 [
   {
     "name": "Korean Fried Chicken",
-    "url": "http:ksjfklsjfalsdf",
+    "url": "https://mykoreankitchen.com/korean-fried-chicken/",
     "ingredients": [
       {
-        "name": "chicken",
-        "amount": 600,
+        "name": "whole chicken",
+        "amount": 700,
+        "unit": "gram"
+      },
+      {
+        "name": "rice wine",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "minced ginger",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "name": "salt",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "name": "black pepper",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "name": "potato starch or corn starch",
+        "amount": 0.5,
+        "unit": "cup"
+      },
+      {
+        "name": "cooking oil (for deep frying)",
+        "amount": 0,
+        "unit": null
+      },
+      {
+        "name": "tomato sauce / ketchup",
+        "amount": 1.5,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "gochujang (Korean chilli paste)",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "honey",
+        "amount": 0.125,
+        "unit": "cup"
+      },
+      {
+        "name": "brown sugar",
+        "amount": 0.125,
+        "unit": "cup"
+      },
+      {
+        "name": "soy sauce",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "garlic",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "sesame oil",
+        "amount": 0.5,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "roasted sesame seeds",
+        "amount": 0,
+        "unit": null
+      },
+      {
+        "name": "green onion",
+        "amount": 0,
+        "unit": null
+      }
+    ],
+    "duration": 40,
+    "portion": 2,
+    "lastCooked": "2026-05-13"
+  },
+  {
+    "name": "Spaghetti mit Pesto",
+    "url": "https://mykoreankitchen.com/korean-fried-chicken/",
+    "ingredients": [
+      {
+        "name": "pesto",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "spaghetti",
+        "amount": 500,
+        "unit": "gram"
+      },
+      {
+        "name": "butter",
+        "amount": 5,
         "unit": "gram"
       }
     ],
-    "duration": 60,
+    "duration": 15,
+    "portion": 1,
+    "lastCooked": "2026-05-13"
+  },
+  {
+    "name": "Asian Style Coleslaw",
+    "url": "https://drive.google.com/drive/folders/12GAJmZ-gslv2Op6kszGNsrzkPC88aUu1",
+    "ingredients": [
+      {
+        "name": "cabbage (white or red)",
+        "amount": 700,
+        "unit": "gram"
+      },
+      {
+        "name": "carrots",
+        "amount": 2.5,
+        "unit": "pieces"
+      },
+      {
+        "name": "salt",
+        "amount": 3,
+        "unit": "tsp"
+      },
+      {
+        "name": "spring onion",
+        "amount": 0.5,
+        "unit": null
+      },
+      {
+        "name": "sweet corn (optional)",
+        "amount": 1,
+        "unit": "cup"
+      },
+      {
+        "name": "sugar",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "apple vinegar or white vinegar",
+        "amount": 80,
+        "unit": "ml"
+      },
+      {
+        "name": "soy sauce",
+        "amount": 2,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "vegetable oil",
+        "amount": 4,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "sesame oil",
+        "amount": 2,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "roasted sesame seeds",
+        "amount": 3,
+        "unit": "Tbsp"
+      }
+    ],
+    "duration": 20,
+    "portion": 2,
+    "lastCooked": "2026-05-13"
+  },
+  {
+    "name": "canned tuna pasta",
+    "url": "https://www.recipetineats.com/canned-tuna-pasta/",
+    "ingredients": [
+      {
+        "name": "spaghetti",
+        "amount": 200,
+        "unit": "gram"
+      },
+      {
+        "name": "canned tuna",
+        "amount": 285,
+        "unit": "gram"
+      },
+      {
+        "name": "garlic",
+        "amount": 2,
+        "unit": "pieces"
+      },
+      {
+        "name": "anchovy fillets (minced)",
+        "amount": 2,
+        "unit": "pieces"
+      },
+      {
+        "name": "chilli flakes",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "name": "baby capers",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "name": "parsley (chopped)",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "lemon zest",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "name": "lemon juice",
+        "amount": 2,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "salt",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "name": "black pepper",
+        "amount": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "duration": 25,
+    "portion": 1,
+    "lastCooked": "2026-05-13"
+  },
+  {
+    "name": "basic salad",
+    "url": null,
+    "ingredients": [
+      {
+        "name": "salad of choice",
+        "amount": 250,
+        "unit": "gram"
+      },
+      {
+        "name": "chicken",
+        "amount": 100,
+        "unit": "gram"
+      },
+      {
+        "name": "salad sauce",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "eggs",
+        "amount": 2,
+        "unit": "pieces"
+      },
+      {
+        "name": "salad nut mix",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "chilli flakes",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "name": "baby capers",
+        "amount": 2,
+        "unit": "tsp"
+      },
+      {
+        "name": "parsley (chopped)",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "lemon zest",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "name": "lemon juice",
+        "amount": 2,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "salt",
+        "amount": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "name": "black pepper",
+        "amount": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "duration": 15,
+    "portion": 1,
+    "lastCooked": "2026-05-13"
+  },
+  {
+    "name": "Shakshuka",
+    "url": "https://www.swissmilk.ch/de/rezepte-kochideen/rezepte/SM2018_CHDO_13/shakshuka/",
+    "ingredients": [
+      {
+        "name": "olive oil",
+        "amount": 2,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "onion (chopped)",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "garlic",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "red bell pepper",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "yellow bell pepper",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "canned chopped tomatoes",
+        "amount": 800,
+        "unit": "gram"
+      },
+      {
+        "name": "tomato paste",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "sugar",
+        "amount": 1,
+        "unit": "pinch"
+      },
+      {
+        "name": "salt",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "name": "black pepper",
+        "amount": 0,
+        "unit": null
+      },
+      {
+        "name": "paprika (sweet)",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "name": "cumin",
+        "amount": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "name": "chilli flakes",
+        "amount": 0,
+        "unit": null
+      },
+      {
+        "name": "eggs",
+        "amount": 4,
+        "unit": "pieces"
+      },
+      {
+        "name": "feta cheese (crumbled)",
+        "amount": 100,
+        "unit": "gram"
+      },
+      {
+        "name": "parsley (chopped)",
+        "amount": 2,
+        "unit": "pieces"
+      }
+    ],
+    "duration": 40,
     "portion": 4,
     "lastCooked": "2026-05-13"
   }

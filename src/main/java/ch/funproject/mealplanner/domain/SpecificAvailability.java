@@ -17,9 +17,9 @@ public class SpecificAvailability {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "start_time")
+    @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
-    @Column(name = "end_time")
+    @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
     private LocalDate date;
     // used for when a reacurring availability is being removed for one week

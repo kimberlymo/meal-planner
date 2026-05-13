@@ -7,9 +7,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public enum Unit {
     @JsonProperty("kg") KG,
-    @JsonProperty("gram")GRAMM,
-    @JsonProperty("liter")LITER,
-    @JsonProperty("dl")DECILITER,
-    @JsonProperty("ml")MILLILITER,
-    @JsonProperty("piece")PIECE
+    @JsonProperty("gram") GRAMM,
+    @JsonProperty("liter") LITER,
+    @JsonProperty("dl") DECILITER,
+    @JsonProperty("ml") MILLILITER,
+    @JsonProperty("pieces") PIECES,
+
+    // American units
+    @JsonProperty("Tbsp") TABLESPOON,
+    @JsonProperty("cup") CUP,
+    @JsonProperty("tsp") TEASPOON,
+
+    @JsonProperty("pinch") PINCH
+
 }

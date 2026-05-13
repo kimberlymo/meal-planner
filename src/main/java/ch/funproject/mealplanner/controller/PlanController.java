@@ -1,6 +1,6 @@
 package ch.funproject.mealplanner.controller;
 
-import ch.funproject.mealplanner.domain.MealPlan;
+import ch.funproject.mealplanner.domain.dto.MealPlanDto;
 import ch.funproject.mealplanner.service.plan.MealPlanService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -36,7 +36,7 @@ public class PlanController {
             @ApiResponse(responseCode = "400", description = "Invalid input parameters"),
     })
     @PostMapping("/generate/{start}/{end}")
-    public Mono<MealPlan> generateMealPlan(@PathVariable @NonNull String start, @PathVariable @NonNull String end) {
+    public Mono<MealPlanDto> generateMealPlan(@PathVariable @NonNull String start, @PathVariable @NonNull String end) {
         if (start.isBlank() || end.isBlank()) {
             return Mono.error(new IllegalArgumentException("Start and end times must not be blank"));
         }

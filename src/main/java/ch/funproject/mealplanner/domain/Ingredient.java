@@ -11,9 +11,9 @@ import java.util.UUID;
  */
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Ingredient {
     @Id
     @Column(unique=true)

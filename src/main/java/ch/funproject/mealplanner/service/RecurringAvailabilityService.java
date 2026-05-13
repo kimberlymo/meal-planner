@@ -38,8 +38,8 @@ public class RecurringAvailabilityService {
         if (availability == null) {
             return Mono.error(new IllegalArgumentException("Availability cannot be null"));
         }
-        if (availability.getStartTime() == null || availability.getEndTime() ==  null) {
-            return Mono.error(new IllegalArgumentException("Date or time cannot be null"));
+        if (availability.getStartTime() == null || availability.getEndTime() ==  null || availability.getWeekDay() == null) {
+            return Mono.error(new IllegalArgumentException("Weekday or time cannot be null"));
         }
 
         if (availability.getStartTime().isAfter(availability.getEndTime())) {

@@ -15,7 +15,7 @@ import java.util.List;
  * Mapper for converting between Recipe and RecipeDto.
  * Uses MapStruct to generate the mapping implementation.
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = { UnitMapper.class })
 public abstract class RecipeMapper {
 
     @Mapping(target = "id", ignore = true)

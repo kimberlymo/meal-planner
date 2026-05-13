@@ -1,6 +1,8 @@
 package ch.funproject.mealplanner.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,7 +31,11 @@ public class Recipe {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<RecipeIngredient> ingredients;
     // Duration in minutes
+    @Min(15)
+    @Max(300)
     private int duration;
     // Number of portions
+    @Min(1)
+    @Max(20)
     private int portion;
 }

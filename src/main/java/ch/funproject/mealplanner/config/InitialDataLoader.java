@@ -1,7 +1,9 @@
 package ch.funproject.mealplanner.config;
 
+import ch.funproject.mealplanner.domain.RecurringAvailability;
 import ch.funproject.mealplanner.domain.dto.RecipeDto;
 import ch.funproject.mealplanner.service.RecipeService;
+import ch.funproject.mealplanner.service.RecurringAvailabilityService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -22,9 +24,11 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class InitialDataLoader implements CommandLineRunner {
-    private final static String DATA_PATH = "/recipes.json";
+    private final static String RECIPES_JSON = "/recipes.json";
+    private final static String AVAILABILITIES_JSON = "/availabilities.json";
 
     private final RecipeService recipeService;
+    private final RecurringAvailabilityService recurringAvailabilityService;
 
     /**
      * Initializes starter data by reading a JSON file and saving the recipes to the database.
@@ -40,9 +44,18 @@ public class InitialDataLoader implements CommandLineRunner {
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-        try (InputStream inputStream = getClass().getResourceAsStream(DATA_PATH)) {
+        try (InputStream inputStream = getClass().getResourceAsStream(RECIPES_JSON)) {
             List<RecipeDto> recipes = mapper.readValue(inputStream, new TypeReference<>() {});
             recipes.forEach(recipeDto -> recipeService.save(recipeDto).subscribe());
+
+        } catch (IOException e) {
+            log.error("Could not load initial data! ", e);
+            throw new RuntimeException(e);
+        }
+
+        try (InputStream inputStream = getClass().getResourceAsStream(AVAILABILITIES_JSON)) {
+            List<RecurringAvailability> availabilities = mapper.readValue(inputStream, new TypeReference<>() {});
+            availabilities.forEach(availability -> recurringAvailabilityService.save(availability).subscribe());
 
         } catch (IOException e) {
             log.error("Could not load initial data! ", e);

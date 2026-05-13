@@ -1,0 +1,32 @@
+[
+  {
+    "startTime": "18:30",
+    "endTime": "20:00",
+    "weekDay": "MONDAY"
+  },
+  {
+    "startTime": "11:30",
+    "endTime": "12:15",
+    "weekDay": "TUESDAY"
+  },
+  {
+    "startTime": "18:30",
+    "endTime": "20:00",
+    "weekDay": "TUESDAY"
+  },
+  {
+    "startTime": "19:00",
+    "endTime": "19:30",
+    "weekDay": "WEDNESDAY"
+  },
+  {
+    "startTime": "19:30",
+    "endTime": "20:15",
+    "weekDay": "THURSDAY"
+  },
+  {
+    "startTime": "18:30",
+    "endTime": "20:00",
+    "weekDay": "FRIDAY"
+  }
+]

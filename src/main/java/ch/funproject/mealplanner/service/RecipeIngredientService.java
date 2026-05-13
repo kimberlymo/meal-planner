@@ -34,7 +34,7 @@ public class RecipeIngredientService {
     }
 
     public Mono<RecipeIngredient> findByAmountAndName(int amount, String name) {
-        if (amount <= 0 || name == null || name.isEmpty()) {
+        if (amount < 0 || name == null || name.isEmpty()) {
             return Mono.error(new IllegalArgumentException("Cannot get RecipeIngredient with invalid data"));
         }
 

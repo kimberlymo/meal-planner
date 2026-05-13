@@ -17,11 +17,11 @@ public class RecurringAvailability {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "start_time")
+    @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
-    @Column(name = "end_time")
+    @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
-    @Column(name = "week_day")
+    @Column(name = "week_day", nullable = false)
     private DayOfWeek weekDay;
 
 }

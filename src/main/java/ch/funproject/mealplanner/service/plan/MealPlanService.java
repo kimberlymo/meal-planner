@@ -1,6 +1,8 @@
 package ch.funproject.mealplanner.service.plan;
 
 import ch.funproject.mealplanner.domain.*;
+import ch.funproject.mealplanner.domain.dto.MealPlanDto;
+import ch.funproject.mealplanner.domain.mapper.MealPlanMapper;
 import ch.funproject.mealplanner.service.MealService;
 import ch.funproject.mealplanner.service.ShoppingListService;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +30,8 @@ public class MealPlanService {
     private final AvailabilityService availabilityService;
     private final RecipeMatcher recipeMatcher;
 
+    private final MealPlanMapper mealPlanMapper;
+
     /**
      * Generates a meal plan for the given date range.
      * It retrieves user availability, finds suitable recipes, creates meals, and generates a shopping list.
@@ -36,7 +40,7 @@ public class MealPlanService {
      * @param end   the end of the date range for the meal plan
      * @return a Mono containing the generated MealPlan
      */
-    public Mono<MealPlan> generatePlan(LocalDateTime start, LocalDateTime end) {
+    public Mono<MealPlanDto> generatePlan(LocalDateTime start, LocalDateTime end) {
         if (start.isAfter(end)) {
             log.error("Invalid date range provided: start {} is after end {}", start, end);
             return Mono.error(new IllegalArgumentException("Start cannot be after End for range"));
@@ -54,7 +58,8 @@ public class MealPlanService {
 
         return Mono.zip(mealsToCreate.collectList(), shoppingList)
                 .map(tuple -> new MealPlan(tuple.getT1(), tuple.getT2()))
-                .doOnSuccess(plan -> log.info("Successfully generated meal plan with {} meals", plan.meals().size()))
+                .map(mealPlanMapper::toDto)
+                .doOnSuccess(plan -> log.info("Successfully generated meal plan with {} meals", plan.getMeals().size()))
                 .doOnError(error -> log.error("Failed to generate meal plan: {}", error.getMessage()));
     }
 
