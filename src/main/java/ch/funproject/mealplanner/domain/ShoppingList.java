@@ -22,7 +22,7 @@ public class ShoppingList {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<RecipeIngredient> ingredients;
     @CreationTimestamp
     private LocalDate creationDate;

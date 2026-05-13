@@ -15,6 +15,9 @@ import java.util.List;
 public abstract class RecipeMapper {
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "url", source = "url")
+    @Mapping(target = "duration", source = "duration")
     @Mapping(target = "ingredients", source = "ingredients", qualifiedByName = "mapIngredients")
     public abstract Recipe toEntity(RecipeDto dto);
 
@@ -26,7 +29,10 @@ public abstract class RecipeMapper {
         return ingredientsDto.stream()
                 .map(ingredient -> RecipeIngredient.builder()
                         .amount(ingredient.getAmount())
-                        .ingredient(Ingredient.builder().name(ingredient.getName()).build())
+                        .ingredient(Ingredient.builder()
+                                .name(ingredient.getName())
+                                .build())
+                        .unit(ingredient.getUnit())
                         .build()
                 ).toList();
     }

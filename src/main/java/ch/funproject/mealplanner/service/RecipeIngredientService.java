@@ -5,6 +5,7 @@ import ch.funproject.mealplanner.domain.RecipeIngredient;
 import ch.funproject.mealplanner.domain.dto.RecipeIngredientDto;
 import ch.funproject.mealplanner.repository.RecipeIngredientRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -12,6 +13,7 @@ import reactor.core.publisher.Mono;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class RecipeIngredientService {
@@ -38,7 +40,8 @@ public class RecipeIngredientService {
 
         return Mono.fromCallable(() -> repository.findByAmountAndIngredient_Name(amount, name))
                 .flatMap(optional -> optional.map(Mono::just)
-                        .orElseGet(Mono::empty));
+                        .orElseGet(Mono::empty))
+                .doOnSuccess(recipeIngredient -> log.debug("Following recipe not found: name {}, amount: {}", name, amount));
     }
 
     public Flux<RecipeIngredient> aggregateIngredientsByMeals(Flux<Meal> meals) {

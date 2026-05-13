@@ -1,13 +1,17 @@
 package ch.funproject.mealplanner.domain.dto;
 
+import ch.funproject.mealplanner.domain.Unit;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class RecipeIngredientDto {
-    private final String name;
-    private final int amount;
+    private String name;
+    private int amount;
+    private Unit unit;
 }

@@ -5,12 +5,14 @@ import ch.funproject.mealplanner.domain.dto.RecipeDto;
 import ch.funproject.mealplanner.domain.mapper.RecipeMapper;
 import ch.funproject.mealplanner.repository.RecipeRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class RecipeService {
@@ -40,6 +42,7 @@ public class RecipeService {
     }
 
     public Mono<Recipe> save(RecipeDto recipe) {
+        log.info("Creating new entry {}", recipe.getName());
         if (recipe == null) {
             return Mono.error(new IllegalArgumentException("Meal cannot be null"));
         }
@@ -53,8 +56,16 @@ public class RecipeService {
 
         return Flux.fromIterable(recipe.getIngredients())
                 .flatMap(ingredient -> recipeIngredientService.findByAmountAndName(ingredient.getAmount(), ingredient.getName())
-                        .switchIfEmpty(recipeIngredientService.save(ingredient)))
-                .then(Mono.fromCallable(() -> repository.save(mapper.toEntity(recipe))));
+                        .switchIfEmpty(Mono.defer(() -> recipeIngredientService.save(ingredient))))
+                .collectList()
+                .flatMap(updated -> Mono.fromCallable(() -> repository.save(Recipe.builder()
+                        .name(recipe.getName())
+                        .url(recipe.getUrl())
+                        .ingredients(updated)
+                        .portion(recipe.getPortion())
+                        .duration(recipe.getDuration())
+                        .build()
+                )));
     }
 
     public Mono<Void> deleteById(UUID id) {

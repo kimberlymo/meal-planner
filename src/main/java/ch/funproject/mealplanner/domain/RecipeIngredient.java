@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
-@Entity(name = "receipe_ingredient")
+@Entity(name = "recipe_ingredient")
 @Getter
 @Builder
 @AllArgsConstructor
@@ -21,6 +21,7 @@ public class RecipeIngredient {
     @ManyToOne
     private Ingredient ingredient;
     private int amount;
+    private Unit unit;
 
     // was added because of the query that is being used in RecipeIngredientRepository
     protected RecipeIngredient(Ingredient ingredient, long amount) {

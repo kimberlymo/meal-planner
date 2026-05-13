@@ -2,6 +2,7 @@ package ch.funproject.mealplanner.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import java.util.UUID;
  */
 @Entity
 @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Recipe {
@@ -21,10 +23,10 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     private String url;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<RecipeIngredient> ingredients;
     // Duration in minutes
     private int duration;

@@ -18,11 +18,20 @@ repositories {
     mavenCentral()
 }
 
+var webfluxVersion = "3.0.2"
+var mapstructVersion = "1.6.3"
+var jacksonVersion = "2.15.2"
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:3.0.2")
-    implementation("org.mapstruct:mapstruct:1.6.3")
+    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:$webfluxVersion")
+    implementation("org.mapstruct:mapstruct:$mapstructVersion")
+
+    // just for local usage
+    implementation("org.springframework.boot:spring-boot-h2console")
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
@@ -32,8 +41,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    runtimeOnly("com.h2database:h2")
 }
 
 tasks.withType<Test> {

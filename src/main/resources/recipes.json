@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Korean Fried Chicken",
+    "url": "http:ksjfklsjfalsdf",
+    "ingredients": [
+      {
+        "name": "chicken",
+        "amount": 600,
+        "unit": "GRAMM"
+      }
+    ],
+    "duration": 60,
+    "portion": 4,
+    "lastCooked": "2026-05-13"
+  }
+]
