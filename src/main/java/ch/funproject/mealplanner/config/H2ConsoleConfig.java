@@ -8,6 +8,9 @@ import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 
+/**
+ * Configuration class to manage the lifecycle of the H2 web console server. It starts the server when the application context is refreshed and stops it when the context is closed.
+ */
 @Configuration
 @Slf4j
 public class H2ConsoleConfig {

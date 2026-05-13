@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+/**
+ * Component that loads initial data into the application on startup. It reads a JSON file containing recipe data and saves it to the database using the RecipeService.
+ */
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -23,7 +26,12 @@ public class InitialDataLoader implements CommandLineRunner {
 
     private final RecipeService recipeService;
 
-    public void initializeData() {
+    /**
+     * Initializes starter data by reading a JSON file and saving the recipes to the database.
+     * It uses Jackson's ObjectMapper to parse the JSON data into RecipeDto objects.
+     * If there is an error during loading, it logs the error and throws a RuntimeException.
+     */
+    private void initializeData() {
         log.info("=".repeat(50));
         log.info("INITIALIZING STARTER DATA");
         log.info("=".repeat(50));
