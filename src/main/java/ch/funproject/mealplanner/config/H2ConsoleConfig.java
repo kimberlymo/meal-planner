@@ -1,4 +1,4 @@
-package ch.funproject.mealplanner;
+package ch.funproject.mealplanner.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.h2.tools.Server;

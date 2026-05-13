@@ -6,7 +6,7 @@
       {
         "name": "chicken",
         "amount": 600,
-        "unit": "GRAMM"
+        "unit": "gram"
       }
     ],
     "duration": 60,

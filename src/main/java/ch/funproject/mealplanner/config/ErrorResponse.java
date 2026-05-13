@@ -1,4 +1,4 @@
-package ch.funproject.mealplanner;
+package ch.funproject.mealplanner.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

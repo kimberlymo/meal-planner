@@ -1,4 +1,4 @@
-package ch.funproject.mealplanner;
+package ch.funproject.mealplanner.config;
 
 import ch.funproject.mealplanner.domain.dto.RecipeDto;
 import ch.funproject.mealplanner.service.RecipeService;
@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import reactor.core.scheduler.Schedulers;
 
 import java.io.IOException;
 import java.io.InputStream;

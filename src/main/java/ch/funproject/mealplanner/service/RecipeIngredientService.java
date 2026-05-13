@@ -60,6 +60,7 @@ public class RecipeIngredientService {
                 .flatMap(found -> Mono.fromCallable(() -> repository.save(RecipeIngredient.builder()
                         .ingredient(found)
                         .amount(toSave.getAmount())
+                        .unit(toSave.getUnit())
                         .build())));
     }
 

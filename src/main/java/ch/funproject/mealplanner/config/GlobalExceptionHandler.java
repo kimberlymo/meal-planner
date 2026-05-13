@@ -1,4 +1,4 @@
-package ch.funproject.mealplanner;
+package ch.funproject.mealplanner.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
