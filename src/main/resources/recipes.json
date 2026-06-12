@@ -397,5 +397,133 @@
     "duration": 40,
     "portion": 4,
     "lastCooked": "2026-05-13"
+  },
+  {
+    "name": "Japanese Egg Potato Salad with Jammy Egg and Bacon",
+    "url": "https://www.tiktok.com/@ayline.ea/video/7647962964892454177",
+    "ingredients": [
+      {
+        "name": "potatoes",
+        "amount": 2,
+        "unit": "pieces"
+      },
+      {
+        "name": "eggs",
+        "amount": 4,
+        "unit": "pieces"
+      },
+      {
+        "name": "cucumber",
+        "amount": 0.5,
+        "unit": "pieces"
+      },
+      {
+        "name": "bacon strips",
+        "amount": 3,
+        "unit": "pieces"
+      },
+      {
+        "name": "Greek yogurt",
+        "amount": 2,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "mayonnaise",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "mustard",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "soy milk",
+        "amount": 5,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "salt",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "name": "black pepper",
+        "amount": 1,
+        "unit": "tsp"
+      }
+    ],
+    "duration": 35,
+    "portion": 1,
+    "lastCooked": "2026-06-12"
+  },
+  {
+    "name": "lemon burrata pasta",
+    "url": "https://vm.tiktok.com/ZNRcSJjPf/",
+    "ingredients": [
+      {
+        "name": "pasta",
+        "amount": 250,
+        "unit": "gram"
+      },
+      {
+        "name": "arugula",
+        "amount": 50,
+        "unit": "gram"
+      },
+      {
+        "name": "red onion",
+        "amount": 0.5,
+        "unit": "pieces"
+      },
+      {
+        "name": "fresh basil",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "yogurt",
+        "amount": 120,
+        "unit": "gram"
+      },
+      {
+        "name": "heavy cream",
+        "amount": 100,
+        "unit": "ml"
+      },
+      {
+        "name": "lemon juice",
+        "amount": 2,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "lemon zest",
+        "amount": null,
+        "unit": null
+      },
+      {
+        "name": "parmesan cheese",
+        "amount": 45,
+        "unit": "gram"
+      },
+      {
+        "name": "olive oil",
+        "amount": 1,
+        "unit": "Tbsp"
+      },
+      {
+        "name": "burrata",
+        "amount": 1,
+        "unit": "pieces"
+      },
+      {
+        "name": "chili oil",
+        "amount": 2,
+        "unit": "tsp"
+      }
+    ],
+    "duration": 25,
+    "portion": 2,
+    "lastCooked": "2026-06-12"
   }
 ]
